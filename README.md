@@ -28,10 +28,14 @@ The dataset used for training is made up of 100 different satellite images (400x
 ## Project Structure
 The train and test images have been uploaded to the repository due to only being 100 for training (plus respective ground truth images), and 50 for testing. Keeping the images provides an easier setup as the repository already comes with a suited way to train the models since the get go.
 ```
+├───resources
 ├───src
 │   └───models
 ├───test_set_images
-└───training
+├───training
+│   ├───groundtruth
+│   └───images
+└───training_extra
     ├───groundtruth
     └───images
 ```
@@ -43,6 +47,7 @@ Multiple parameters in `train.py` can be adjusted to fine tune the performance o
 - `BATCH_SIZE`: the size of the mini-batches used by the model during training, smaller mini-batches reduce computational cost but can impact performance.
 - `NUM_EPOCHS`: number of training cycles the model will go through.
 - `LEARNING_RATE`: controls the step size at which the optimization algorithm updates model weights during training.
+- `MASSACHUSSETS`: It is a boolean. When true, the model is trained with an added 46 pictures taken randomly from the [Massachussets dataset](https://www.kaggle.com/datasets/balraj98/massachusetts-roads-dataset/data), which are located in the training_extra directory.
 
 **Choosing different models:**
 Different models can be trained and later used to make predictions, the available models can be found in `/models`. Changing the model can be done by importing the model in `train.py` and using it at the top of the `main()` function in `train.py`.:
