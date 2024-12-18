@@ -164,4 +164,8 @@ cython_debug/
 *.pt
 
 /submissions
+/resources
 /test.vsc
+/test_set_images
+/training/images/*
+/training/groundtruth/*
