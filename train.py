@@ -23,7 +23,7 @@ from src.models.UNet_Resnet import Unet_Resnet
 LEARNING_RATE = 1e-4
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 BATCH_SIZE = 6
-NUM_EPOCHS = 5
+NUM_EPOCHS = 1
 IMAGE_HEIGHT = 400
 IMAGE_WIDTH = 400
 RESUME_TRAINING = False
@@ -190,7 +190,7 @@ def train(train_loader, test_loader, model, optimizer, scheduler, criterion, epo
 
 def main():
     set_seed(seed = 42) 
-    model = unet3p(num_classes = 1, input_size = IMAGE_WIDTH).to(device = DEVICE)
+    model = UNet3p_Resnet(num_classes = 1, input_size = IMAGE_WIDTH).to(device = DEVICE)
 
     if (RESUME_TRAINING):
         resume(model, 'UnetResnet.pt')
