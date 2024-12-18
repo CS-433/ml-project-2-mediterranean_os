@@ -27,6 +27,14 @@ The dataset used for training is made up of 100 different satellite images (400x
 
 ## Project Structure
 The train and test images have been uploaded to the repository due to only being 100 for training (plus respective ground truth images), and 50 for testing. Keeping the images provides an easier setup as the repository already comes with a suited way to train the models since the get go.
+```
+├───src
+│   └───models
+├───test_set_images
+└───training
+    ├───groundtruth
+    └───images
+```
 
 
 ## Usage
