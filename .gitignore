@@ -163,14 +163,4 @@ cython_debug/
 
 *.pt
 
-ML2_Leo/training/
-ML2_Leo/test_set_images/
-ML2_Leo/sample_submission.csv
-
-ML2_Luis/training/
-ML2_Luis/test_set_images/
-ML2_Luis/sample_submission.csv
-
-ML2_Antonio/training/
-ML2_Antonio/test_set_images/
-ML2_Antonio/sample_submission.csv
+/submissions
