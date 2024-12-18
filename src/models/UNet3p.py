@@ -37,7 +37,7 @@ class encoder_block(nn.Module):
         p = self.p1(x)
         return x, p
 
-class unet3p(nn.Module):
+class UNet3p(nn.Module):
     def __init__(self, input_size, num_classes=1):
         super().__init__()
 

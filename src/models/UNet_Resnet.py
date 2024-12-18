@@ -42,7 +42,7 @@ class DecoderBlock(nn.Module):
         x = torch.cat([x1, x2], dim=1)
         return self.conv(x)
 
-class UnetResnet34(nn.Module):
+class Unet_Resnet(nn.Module):
     def __init__(self, input_size, num_classes=1):
         super().__init__()
 

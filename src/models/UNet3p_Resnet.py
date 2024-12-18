@@ -36,7 +36,7 @@ class encoder_block(nn.Module):
         p = self.p1(x)
         return x, p
 
-class unet3p_back(nn.Module):
+class UNet3p_Resnet(nn.Module):
     def __init__(self, input_size, num_classes=1):
         super().__init__()
 
