@@ -18,8 +18,8 @@ For this project, we used an already implemented UNet3+: [Link to original repos
 ## Datasets
 The dataset used for training is made up of 100 different satellite images (400x400px) of american style suburbs, along with their respective ground truth images highlighting the roads that are used during the supervised learning. For testing, the dataset is comprised by 50 satellite images (608x608px) of similar american style suburbs. 
 <br /><br />
-![Satellite image](https://github.com/CS-433/ml-project-2-mediterranean_os/blob/main/satImage_001.png)
-![Ground truth image](https://github.com/CS-433/ml-project-2-mediterranean_os/blob/main/satImage_001_ground.png)
+![Satellite image](https://github.com/CS-433/ml-project-2-mediterranean_os/blob/main/resources/satImage_001.png)
+![Ground truth image](https://github.com/CS-433/ml-project-2-mediterranean_os/blob/main/resources/satImage_001_ground.png)
 
 ## Setup
 - Clone the repository with `git clone https://github.com/CS-433/ml-project-2-mediterranean_os.git`
