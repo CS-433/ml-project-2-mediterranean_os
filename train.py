@@ -137,8 +137,6 @@ def train(train_loader, test_loader, model, optimizer, scheduler, criterion, epo
 
     test_loader = tqdm(test_loader, desc=f"Validation", unit="batch")
 
-    #debug_check_gradients(model)
-
     with torch.no_grad():
         for images, masks in test_loader:
             images, masks = images.to(DEVICE), masks.to(DEVICE)
