@@ -3,7 +3,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torchvision
 
-
 class DecoderBlock(nn.Module):
     """Upscaling then double conv"""
 
@@ -115,3 +114,4 @@ class UnetResnet34(nn.Module):
             out = out[:, :, crop_start:crop_end, crop_start:crop_end]
 
         return out
+
