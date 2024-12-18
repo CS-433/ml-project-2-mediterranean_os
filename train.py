@@ -15,8 +15,8 @@ from tqdm import tqdm
 from src.dataset import MyDataset
 from src.metrics import (Bce_plus_DiceLoss, DiceLoss, calculate_metrics,
                          plot_images)
-from src.models.model_unet3p import unet3p
-from src.models.model_unet3p_Resnet import unet3p_back
+from models.UNet3p import unet3p
+from models.UNet3p_Resnet import unet3p_back
 from src.models.UNet import UNet
 from src.models.UNet_Resnet import UnetResnet34
 

@@ -6,6 +6,7 @@ from torch.utils.data import DataLoader, Dataset
 from torchvision import datasets, transforms
 from torchvision.models import ResNet50_Weights, resnet50
 
+# Parts of the code are inspired by: https://github.com/nikhilroxtomar/UNET-3-plus-Implementation-in-TensorFlow-and-PyTorch
 class conv_block(nn.Module):
     def __init__(self, in_c,out_c,act=True):
         super().__init__()

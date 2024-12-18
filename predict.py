@@ -18,7 +18,7 @@ from tqdm import tqdm
 import src.mask_to_submission as mts
 from src.dataset import SubmissionDataset
 from src.metrics import DiceLoss, calculate_metrics, plot_images
-from src.models.model_unet3p_Resnet import unet3p_back
+from models.UNet3p_Resnet import unet3p_back
 from src.models.UNet import UNet
 from src.models.UNet_Resnet import UnetResnet34
 
