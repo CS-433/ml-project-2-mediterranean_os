@@ -10,7 +10,7 @@
 5. [Authors](#authors)
 
 ## Introduction
-This project implements a UNet-based deep learning model to address the problem of semantic road segmentation. Semantic segmentation is critical for applications such as autonomous driving and urban planning, enabling precise identification of road regions in images. Apart from the basic UNet architecture, UNet3+ and a RESNet34 backbone have been added to compare the performance of predictions against the base implementation. 
+This project implements a UNet-based deep learning model to address the problem of semantic road segmentation. Semantic segmentation is critical for applications such as autonomous driving and urban planning, enabling precise identification of road regions in images. Apart from the basic UNet architecture, UNet3+ and a RESNet34 backbone have been added to compare the performance of predictions against the base implementation. <br />
 The dataset used for training is made up of 100 different satellite images (400x400px) of american style suburbs, along with their respective ground truth images highlighting the roads that are used during the supervised learning. For testing, the dataset is comprised by 50 satellite images (608x608px) of similar american style suburbs.
 
 
