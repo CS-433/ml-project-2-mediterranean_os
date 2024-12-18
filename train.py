@@ -23,12 +23,9 @@ from src.models.UNet_Resnet import UnetResnet34
 LEARNING_RATE = 1e-4
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 BATCH_SIZE = 6
-CLIP_VALUE = 5.0
 NUM_EPOCHS = 20
-NUM_WORKERS = 2
 IMAGE_HEIGHT = 400
 IMAGE_WIDTH = 400
-PIN_MEMORY = True
 RESUME_TRAINING = False
 MASSACHUSSETS = False
 TRAIN_IMG_DIR = "./training" 
