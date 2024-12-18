@@ -7,14 +7,21 @@ from torchvision.models import ResNet50_Weights, resnet50
 
 class UNet(nn.Module):
 
-    def __init__(self, in_channels, out_channels):
+    def __init__(self, input_size, num_classes = 1):
         super(UNet, self).__init__()
 
-        self.in_channels = in_channels
-        self.out_channels = out_channels
+        self.input_size = input_size
+        size = input_size
+        while(size % 64 != 0):
+            size = size + 1
+        padding_size = (int) ((size - input_size)/2)
+        self.pad = nn.ConstantPad2d(padding_size, value=0)  
+#
+        self.in_channels = 3
+        self.out_channels = num_classes
 
         # Contracting Path with 4 encoder blocks and 4 max pooling layers
-        self.encoder1_conv = self.conv_ReLu(in_channels, 64)
+        self.encoder1_conv = self.conv_ReLu(3, 64)
         self.encoder1_pool = nn.MaxPool2d(kernel_size=2, stride=2)
 
         self.encoder2_conv = self.conv_ReLu(64, 128)
@@ -43,7 +50,7 @@ class UNet(nn.Module):
         self.decoder4_conv = self.conv_ReLu(128, 64)
 
         # Final Convolutional Layer, 3 output channels because it is a RGB image
-        self.final_conv = nn.Conv2d(64, out_channels, kernel_size=1, stride=1, padding=1, bias=True)
+        self.final_conv = nn.Conv2d(64, num_classes, kernel_size=1, stride=1, padding=0, bias=True)        
         
         self.sigmoid = nn.Sigmoid()
         self.dropout = nn.Dropout(p=0.2)
@@ -58,7 +65,7 @@ class UNet(nn.Module):
             in_channels: Number of input channels.
             out_channels: Number of output channels.
 
-        Returns:
+        Returns:    
             nn.Sequential: Convolutional block with ReLU activation function, Batch Normalization and 2 convolutional layers.
         """
         return  nn.Sequential(
@@ -78,7 +85,6 @@ class UNet(nn.Module):
                 nn.init.kaiming_normal_(module.weight, mode="fan_out", nonlinearity="relu")
                 if module.bias is not None:
                     nn.init.constant_(module.bias, 0)
-                    
     def forward(self, X):
         s1 = self.encoder1_conv(X)
         p1 = self.encoder1_pool(s1)
@@ -90,7 +96,7 @@ class UNet(nn.Module):
         p3 = self.encoder3_pool(s3)
 
         s4 = self.encoder4_conv(p3)
-        p4 = self.encoder4_pool(s4)
+        p4 = self.encoder4_pool(s4) 
 
         base = self.base_layer(p4)
 
@@ -111,8 +117,11 @@ class UNet(nn.Module):
         d1 = torch.cat([d1, s1], dim=1)
         d1 = self.decoder4_conv(d1)
 
-        res = self.final_conv(d1)
-        return res
+        out = self.final_conv(d1)
 
-    def predict(self, X):
-        return self.sigmoid(self.forward(X))
+        if X.shape[-1] > self.input_size:
+            crop_start = (X.shape[-1] - self.input_size) // 2
+            crop_end = crop_start + self.input_size
+            out = out[:, :, crop_start:crop_end, crop_start:crop_end]
+
+        return out
