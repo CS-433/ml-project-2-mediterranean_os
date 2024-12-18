@@ -26,7 +26,8 @@ The dataset used for training is made up of 100 different satellite images (400x
 - This project uses Pytorch with CUDA, in case you installed Pytorch without CUDA enabled, you will need to reinstall Pytorch following [this short guide](https://pytorch.org/get-started/locally/)
 
 ## Project Structure
-Generate tree
+The train and test images have been uploaded to the repository due to only being 100 for training (plus respective ground truth images), and 50 for testing. Keeping the images provides an easier setup as the repository already comes with a suited way to train the models since the get go.
+
 
 ## Usage
 **Hyperparameter tuning:**
@@ -42,7 +43,8 @@ Different models can be trained and later used to make predictions, the availabl
 - **[RESNet34 backbone:](https://arxiv.org/abs/1512.03385)** both models can be run with a RESNet34 backbone to improve performance at the cost of more computation required. 
 
 **Running the program:**
-Run the code in `train.py` and wait for the results and the visualizations.
+- Run `train.py` and wait until training finishes, the current epoch is shown as well as bars to track progress. When it finishes it will save the model `model_state_dict.pt`.
+- Run `predict.py` to test the model, it will generate `test.csv` with the predicted pixels and the folder `/submissions` with the predicted images.
 
 ## Authors
 | Student's name | SCIPER |
