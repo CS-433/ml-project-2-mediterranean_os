@@ -200,8 +200,8 @@ def main():
             A.Rotate(limit=(-90, 90), p=0.5),
             A.HorizontalFlip(p=0.5),
             A.VerticalFlip(p=0.5),
-            A.CoarseDropout(num_holes_range = (3,6), hoxle_height_range = (8,15), hole_width_range = (8,15), p = 1.0),
-            A.ElasticTransform(p =1.0),
+            A.CoarseDropout(num_holes_range = (3,6), hoxle_height_range = (8,15), hole_width_range = (8,15), p = 0.2),
+            A.ElasticTransform(p =0.2),
         ]
     )
     colour_transforms = A.Compose(
