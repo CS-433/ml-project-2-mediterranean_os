@@ -31,7 +31,7 @@ TRAIN_IMG_DIR = "./training"
 VAL_IMG_DIR = "./test_set_images"
 
 if __name__ == "__main__":
-    model = UnetResnet34( input_size = IMAGE_WIDTH, num_classes = 1).to(device = DEVICE)
+    model = UNet3p( input_size = IMAGE_WIDTH, num_classes = 1).to(device = DEVICE)
     
     model.load_state_dict(torch.load('model_state_dict.pt'))
 
